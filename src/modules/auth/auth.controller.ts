@@ -10,7 +10,6 @@ import { decrypt, encrypt } from '../../utils/crypto';
 export class AuthController {
   constructor(
     private readonly authService: AuthService,
-    private readonly jwtService: JwtService,
     private readonly userService: UsersService,
   ) {}
 
@@ -23,15 +22,13 @@ export class AuthController {
   @UseGuards(JwtAuthGuard)
   async changePassword(@Body() body: changePwdDto, @Request() req): Promise<any> {
     const { password, newPassword, confirmPassword } = body;
-    // @ts-ignore
-    const { username } = this.jwtService.decode(req.headers.authorization.split(' ')[1]);
-    const user: any = await this.userService.findOne({ username });
+    const user: any = req.user;
     if (user && password === decrypt(user.password) && confirmPassword === newPassword) {
       await this.userService.updateOne(user._id, {
-        password: encrypt(confirmPassword)
+        password: encrypt(confirmPassword),
       });
       return {
-        message: '修改密码成功'
+        message: '修改密码成功',
       };
     } else {
       throw new HttpException({

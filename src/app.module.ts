@@ -4,7 +4,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { TagsModule } from './modules/tags/tags.module';
-import { AttchmentsModule } from './modules/attchments/attchments.module';
+import { AttachmentsModule } from './modules/attachments/attachments.module';
 import config from './config';
 
 @Module({
@@ -20,7 +20,7 @@ import config from './config';
     AuthModule,
     UsersModule,
     TagsModule,
-    AttchmentsModule,
+    AttachmentsModule,
   ],
 })
 export class AppModule {}
