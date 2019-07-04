@@ -1,22 +1,21 @@
 export default {
-  // 端口号
+  // �˿ں�
   port: 7000,
-  // 域名
+  // ����
   host: 'http://localhost:7000',
-  // mongodb接口
-  mongoose: 'mongodb://localhost:27017/blog',
-  // 初始化密码和帐号
+  // mongodb�ӿ�
+  mongoose: 'mongodb://mongo:27017/blog',
+  // ��ʼ��������ʺ�
   DEFAULT_USERNAME: 'hanzhixiong',
   DEFAULT_PASSWORD: '123456',
-  // 密码的密匙
+  // ������ܳ�
   PASSWORD_KEY: 'secretKey',
-  // 签名的密匙
+  // ǩ�����ܳ�
   SIGN_KEY: 'hanzhixiong',
-  // token有效时间
+  // token��Чʱ��
   SIGN_EXPIRES_IN: 60 * 60 * 24,
-  // 静态资源路劲
+  // ��̬��Դ·��
   STATIC_PATH: 'static',
-  // 上转图片路径
+  // ��תͼƬ·��
   UPLOAD_PATH: 'static/uploads',
-
 };

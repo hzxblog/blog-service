@@ -1,14 +1,18 @@
 version: "3"
 services:
   apiapp:
+    container_name: blog-api-container
+#    image: blog-service_apiapp
     build: ./
     ports:
       - "7000:7000"
     links: 
       - mongo
   mongo:
+    container_name: blog-db-container
     image: mongo
     volumes:
       - /data/mongodb/db:/data/db
     ports:
       - "27017:27017"
+  
